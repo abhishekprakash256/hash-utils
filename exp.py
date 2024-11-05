@@ -1,0 +1,3 @@
+import hash_generator
+
+hash_generator.unique_hash_generator()

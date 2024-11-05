@@ -1,0 +1,2 @@
+from .hash_maker import generate_random_hash
+from .unique_hash_generator import generate_unique_hash
