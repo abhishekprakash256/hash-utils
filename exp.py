@@ -1,3 +1,3 @@
-import hash_generator
+import hash_utils
 
-hash_generator.unique_hash_generator()
+x = hash_utils.unique_hash_generator()
