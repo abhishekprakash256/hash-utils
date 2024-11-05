@@ -3,7 +3,7 @@ The file to generate the unique hash that check in redis hash and pre build a se
 """
 
 from redis_helper_kit import *
-from hash_maker import generate_random_hash
+from .hash_maker import generate_random_hash
 
 
 
