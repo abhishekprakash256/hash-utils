@@ -1,7 +1,4 @@
-# hash-utils
-Here's a `README.md` for your project that describes each file and explains how to use the functionality.
 
-```markdown
 # Hash Utils
 
 This project contains utility functions to generate random and unique hashes. It includes a Redis integration to store unique hashes and manage a predefined quantity of unique hashes within a Redis set.
@@ -98,6 +95,4 @@ This will generate unique hashes between 5 and 10 characters and store them in R
 ## License
 
 This project is licensed under the MIT License.
-```
 
-This README explains the purpose of each file, how to use the functions, and how to set up and run the project. You can adapt it as needed based on your repository and additional requirements.

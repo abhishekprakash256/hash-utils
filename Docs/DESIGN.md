@@ -1,6 +1,3 @@
-Here's a design document for your project, outlining the architecture, components, and design decisions.
-
----
 
 # Design Document for Hash Utils Project
 
