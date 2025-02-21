@@ -1,3 +1,7 @@
+"""
+The file to demostrate the basic usage of hash-make kit
+"""
+
 import redis
 import hash_utils
 from redis_helper_kit import * 
@@ -21,9 +25,11 @@ def hash_test():
 
         helper_fun = redis_crud_operations.Helper_fun("test_hash","test_set","localhost")
 
-        val = helper_fun.pop_set_val()
+        for _ in range(10):
 
-        print(val)
+            val = helper_fun.pop_set_val()
+
+            print(val)
 
 
-#print(hash_test())
+print(hash_test())

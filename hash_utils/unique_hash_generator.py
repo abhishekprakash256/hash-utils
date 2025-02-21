@@ -7,17 +7,20 @@ from .hash_maker import generate_random_hash
 
 
 
-def generate_unique_hash(hash_name,set_name,host_name,low,high,hash_qty):
+def generate_unique_hash(hash_name,set_name,host_name,low,high,hash_qty , redis_client = None):
     """
     The fucntion to make the unique hash by check the hash and filling the redis set as well
     Also maintains a prebuild amount of hash in the redis set as per hash_qty
     """
 
     #make the instance of the helper function
-    helper_fun = redis_crud_operations.Helper_fun(hash_name,set_name,host_name)
+    helper_fun = redis_crud_operations.Helper_fun(hash_name,set_name,host_name , redis_client)
     
-    #make client
-    redis_client = create_redis_client(host_name)
+    #make client on condn
+    if redis_client:
+        redis_client = redis_client
+    else:
+        redis_client = create_redis_client(host_name)
 
     #get the set length 
     set_len = redis_client.scard(set_name)
