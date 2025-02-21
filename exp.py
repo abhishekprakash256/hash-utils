@@ -26,4 +26,4 @@ def hash_test():
         print(val)
 
 
-#print(hash_test())
+print(hash_test())

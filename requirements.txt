@@ -1,1 +1,2 @@
 redis==5.0.4
+git+https://github.com/abhishekprakash256/redis-helper-kit.git
