@@ -64,6 +64,14 @@ This project requires the following Python packages:
 - `redis`
 - `redis_helper_kit` (available from [GitHub](https://github.com/abhishekprakash256/redis-helper-kit.git))
 
+## Start the docker container 
+
+```bash
+docker pull redis
+
+docker run -d --name redis --network my_network -p 6379:6379 redis:latest
+```
+
 ## Installation
 
 1. Clone the repository:
