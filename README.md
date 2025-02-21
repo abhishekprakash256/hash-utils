@@ -79,6 +79,14 @@ This project requires the following Python packages:
    pip install git+https://github.com/abhishekprakash256/redis-helper-kit.git
    ```
 
+## Run the example file 
+
+```bash
+ python3 -m examples.basic_usage
+
+```
+Run this in root dir
+
 ## Usage
 
 To generate unique hashes and store them in Redis, run:
