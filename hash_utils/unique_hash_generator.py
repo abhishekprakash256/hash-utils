@@ -22,7 +22,6 @@ def generate_unique_hash(hash_name,set_name,host_name,low,high,hash_qty , redis_
     else:
         redis_client = create_redis_client(host_name)
 
-
     #get the set length 
     set_len = redis_client.scard(set_name)
 
