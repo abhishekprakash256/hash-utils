@@ -99,6 +99,13 @@ Run this in root dir
 
 To generate unique hashes and store them in Redis, run:
 
+## Installation 
+
+```bash
+pip install git+https://github.com/abhishekprakash256/hash-utils.git
+
+```
+
 ```python
 from unique_hash_generator import generate_unique_hash
 
