@@ -1,15 +1,11 @@
-"""
-The file to demostrate the basic usage of hash-make kit
-"""
-
-import redis
-import hash_utils
 from redis_helper_kit import * 
+from unique_hash_generator import generate_unique_hash
+
 
 
 def hash_test():
         
-        hash_utils.generate_unique_hash("primary_set","secondary_set","localhost",5,10,100)
+        generate_unique_hash("primary_set","secondary_set","localhost",5,10,100)
 
         # Connect to Redis server
         #client = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -29,17 +25,3 @@ def hash_test():
         for val in values:
 
             print("Value in the set:", val)
- 
-
-
-
-        #helper_fun = redis_crud_operations.Helper_fun("test_hash","test_set","localhost")
-
-        #for _ in range(10):
-
-        #    val = helper_fun.pop_set_val()
-
-        #    print(val)
-
-
-print(hash_test())
