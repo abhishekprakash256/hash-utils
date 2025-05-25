@@ -50,7 +50,7 @@ def test_hash_generator(fake_redis_client):
 
     # Step 3: Pop 10 values from the set
     for _ in range(10):
-        helper_fun.pop_set_val()
+        helper_fun.pop_set_val(HASH_PRIMARY_SET)
 
     # Step 4: Validate remaining count is 90
     assert fake_redis_client.scard(HASH_PRIMARY_SET) == 90, "Expected 90 hashes remaining after popping 10"
