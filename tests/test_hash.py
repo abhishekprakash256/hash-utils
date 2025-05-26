@@ -59,4 +59,4 @@ def test_hash_generator(fake_redis_client):
     hash_utils.generate_unique_hash(HASH_PRIMARY_SET, HASH_SECONDRY_SET, None, 5, 10, 100, redis_client=fake_redis_client)
 
     # Step 6: Validate the total count is reset to 100
-    #assert fake_redis_client.scard(HASH_PRIMARY_SET) == 100, "Expected hash set count to be 100 after regeneration"
+    assert fake_redis_client.scard(HASH_PRIMARY_SET) == 100, "Expected hash set count to be 100 after regeneration"
