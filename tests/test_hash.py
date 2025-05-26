@@ -9,7 +9,8 @@ from redis_helper_kit import redis_crud_operations
 
 # Constants for test parameters
 LOW, HIGH, TIMES = 5, 10, 200  
-HASH_SET_KEY = "test_set"
+HASH_PRIMARY_SET = "primary_set"
+HASH_SECONDRY_SET = "secondary_set"
 
 @pytest.fixture
 def fake_redis_client():
@@ -42,20 +43,20 @@ def test_hash_generator(fake_redis_client):
     """
 
     # Step 1: Generate and store 100 unique hashes in Redis
-    hash_utils.generate_unique_hash("test_hash", HASH_SET_KEY, None, 5, 10, 100, redis_client=fake_redis_client)
+    hash_utils.generate_unique_hash(HASH_PRIMARY_SET, HASH_SECONDRY_SET, None, 5, 10, 100, redis_client=fake_redis_client)
 
     # Step 2: Create a helper instance
-    helper_fun = redis_crud_operations.Helper_fun("test_hash", HASH_SET_KEY, None, fake_redis_client)
+    helper_fun = redis_crud_operations.Helper_fun(redis_client = fake_redis_client)
 
     # Step 3: Pop 10 values from the set
     for _ in range(10):
-        helper_fun.pop_set_val()
+        helper_fun.pop_set_val(HASH_PRIMARY_SET)
 
     # Step 4: Validate remaining count is 90
-    assert fake_redis_client.scard(HASH_SET_KEY) == 90, "Expected 90 hashes remaining after popping 10"
+    assert fake_redis_client.scard(HASH_PRIMARY_SET) == 90, "Expected 90 hashes remaining after popping 10"
 
     # Step 5: Generate another 100 hashes
-    hash_utils.generate_unique_hash("test_hash", HASH_SET_KEY, None, 5, 10, 100, redis_client=fake_redis_client)
+    hash_utils.generate_unique_hash(HASH_PRIMARY_SET, HASH_SECONDRY_SET, None, 5, 10, 100, redis_client=fake_redis_client)
 
     # Step 6: Validate the total count is reset to 100
-    assert fake_redis_client.scard(HASH_SET_KEY) == 100, "Expected hash set count to be 100 after regeneration"
+    assert fake_redis_client.scard(HASH_PRIMARY_SET) == 100, "Expected hash set count to be 100 after regeneration"
